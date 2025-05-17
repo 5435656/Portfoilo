@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boni Leela Venkata Aditya - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles for download dialog */
+        .download-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .close-modal:hover {
+            color: black;
+        }
+        
+        .download-options {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .download-btn-modal {
+            padding: 0.8rem;
+            border-radius: 5px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn-modal:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .code-tab-container {
+            margin-bottom: 1rem;
+        }
+        
+        .code-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .code-tab {
+            padding: 0.5rem 1rem;
+            background: #eee;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+        
+        .code-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .code-content {
+            display: none;
+        }
+        
+        .code-content.active {
+            display: block;
+        }
+    </style>
+<!-- <script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"><link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"></head> -->
+<body sapling-installed="true">
+    <div id="particles-js"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1256" height="752"></canvas></div>
+    
+    <header class="sticky">
+        <nav>
+            <div class="logo">Aditya</div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#" onclick="showDownloadModal()">Download Files</a>
+                <div class="nav-close"><i class="fas fa-times"></i></div>
+            </div>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero fade-in">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="slide-up">Hi, I'm <span>Boni Leela Venkata Aditya</span></h1>
+                <p class="slide-up">I'm a <span class="txt-type" data-wait="3000" data-words="[&quot;Software Engineer&quot;, &quot;Problem Solver&quot;, &quot;Web Developer&quot;, &quot;ML Enthusiast&quot;]"><span class="txt">Problem Solver</span></span></p>
+                <p class="slide-up">Looking to work for a dynamic organization with opportunities for career growth. Quick learner and problem solver.</p>
+                
+                <div class="social-icons slide-up">
+                    <a href="mailto:bonileelu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.codechef.com/users/adi21501a0524"><i class="fas fa-code"></i></a>
+                </div>
+                
+                <div class="cta-buttons slide-up">
+                    <a href="#projects" class="btn primary-btn">View Projects</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                    <a href="#" class="btn secondary-btn" onclick="downloadResume()">Download Resume</a>
+                    <a href="#" class="btn secondary-btn" onclick="showDownloadModal()">Download Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text animate visible">
+                    <p>I am looking forward to a career in software engineering. To learn and gain new experience while utilizing my interpersonal skills to help achieve business goals. Excellent analytical and developmental skills for a software engineer role.</p>
+                    <p>Looking to work for a dynamic organization with opportunities for career growth. Quick learner and problem solver.</p>
+                    
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>bonileelu@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 8978536069</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Vijayawada, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects fade-in">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card animate visible">
+                    <div class="project-content">
+                        <h3>Car Price Prediction</h3>
+                        <div class="project-tags">
+                            <span>Flask</span>
+                            <span>Machine Learning</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <p>In Python and Flask, I developed a car price prediction model that emphasizes robust data preprocessing and efficient model training. The application includes a user-friendly interface for seamless input and real-time price estimation.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/5435656/car_price_predictions" target="_blank"><i class="fab fa-github"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card animate visible">
+                    <div class="project-content">
+                        <h3>Supply Chain Using Blockchain</h3>
+                        <div class="project-tags">
+                            <span>Blockchain</span>
+                            <span>Solidity</span>
+                            <span>Truffle.js</span>
+                        </div>
+                        <p>The Supply Chain DApp leverages blockchain and smart contracts to simplify the management of pharmaceutical products, reduce regulatory burdens, and increase transparency. Developed using Solidity and deployed on Truffle.js' Gode Testnet.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/5435656/Supply_Chain_Blockchain" target="_blank"><i class="fab fa-github"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card animate visible">
+                    <div class="project-content">
+                        <h3>Placement Cell Application</h3>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>ExpressJS</span>
+                            <span>MongoDB</span>
+                        </div>
+                        <p>Placement Cell app is a solution for managing student job interviews using MongoDB, ExpressJS, NodeJS. It has CRUD jobs, interview management and profile updates for students and companies.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/5435656/Placement-Cell-Application" target="_blank"><i class="fab fa-github"></i> View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills fade-in">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-content">
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>C</li>
+                        <li>Java</li>
+                        <li>OOPS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Node.js</li>
+                        <li>React</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    <ul class="skill-list">
+                        <li>SQL</li>
+                        <li>DBMS</li>
+                        <li>NoSQL</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-brain"></i> Data Science</h3>
+                    <ul class="skill-list">
+                        <li>Machine Learning</li>
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Matplotlib</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-tools"></i> Tools</h3>
+                    <ul class="skill-list">
+                        <li>Git</li>
+                        <li>Github</li>
+                        <li>RESTful APIs</li>
+                        <li>DSA</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category animate visible">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Leadership</li>
+                        <li>Team Player</li>
+                        <li>Communication</li>
+                        <li>Discipline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience fade-in">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="timeline-item animate visible">
+                <div class="timeline-content">
+                    <h3>AWS Cloud Virtual Internship</h3>
+                    <div class="timeline-date">Sep 2023 - Nov 2023</div>
+                    <p class="institution">Supported by AWS academy</p>
+                    <p>Participated in a 10-week Cloud Virtual Internship sponsored by AWS Academy, with an emphasis on cloud computing concepts.</p>
+                    <p>Acquired extensive knowledge of AWS infrastructure, security, and best practices. Improved cloud expertise through hands-on learning and execution.</p>
+                    <a href="https://drive.google.com/file/d/1JmTrshA29gSU1omrMpvTFAp_5SHGn62w/view?usp=sharing" class="certificate-link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education fade-in">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="timeline-item animate visible">
+                <div class="timeline-content">
+                    <h3>Prasad V Potluri Siddhartha Institute Of Technology</h3>
+                    <div class="timeline-date">2021 - 2025</div>
+                    <p class="institution">Bachelor Of Technology in Computer Science And Engineering</p>
+                    <p class="grade">GPA: 8.41/10</p>
+                    <p>Vijayawada, India</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item animate visible">
+                <div class="timeline-content">
+                    <h3>Narayana Junior College</h3>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <p class="institution">Physics, Chemistry, &amp; Mathematics</p>
+                    <p class="grade">Percentage: 91.6%</p>
+                    <p>Vijayawada, India</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item animate visible">
+                <div class="timeline-content">
+                    <h3>Sree Ram High School</h3>
+                    <div class="timeline-date">2018 - 2019</div>
+                    <p class="institution">10th Class</p>
+                    <p class="grade">GPA: 9.8/10</p>
+                    <p>Vijayawada, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications fade-in">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="cert-grid">
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Coursera</h3>
+                    <p>Python for Data Science, AI Development, Tools for Data Science</p>
+                    <a href="https://drive.google.com/drive/folders/1D4QyhFTIpA2jey_wFVzKsgXezZLeeWLm?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+                
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Infosys Spring Board</h3>
+                    <p>C++</p>
+                    <a href="https://drive.google.com/file/d/1xAz7ULX65SG8Zi1UvWwPpZ5ERLuyqg79/view?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+                
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>NPTEL</h3>
+                    <p>Programming in C, Java</p>
+                    <a href="https://drive.google.com/drive/folders/1hH_przQM0VaMoLZUp0IR1j3Q4R1EObOr?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+                
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Red Hat</h3>
+                    <p>Certificate of Linux operating system</p>
+                    <a href="https://drive.google.com/file/d/1vP4kriMPtOOwMlEia9_fTXeDZt0Y57w7/view?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+                
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>IIT Bombay</h3>
+                    <p>Certifications in C, C++, and Python</p>
+                    <a href="https://drive.google.com/drive/folders/1IT_GpjT8aaE7L74bbg4ByDL8etJqjkGd?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+                
+                <div class="cert-card animate visible">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Smart Coder</h3>
+                    <p>Certificate from Smart Interviews for strong skills in DSA</p>
+                    <a href="https://drive.google.com/file/d/1pp86v3kFkNdhnymHytAepNl9ytUFH-Qd/view?usp=sharing" class="btn" target="_blank">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Modal -->
+    <div id="downloadModal" class="download-modal" style="display: block;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="hideDownloadModal()">×</span>
+            <h2>Download Source Code</h2>
+            <p>You can view and copy the source code for the portfolio below:</p>
+            
+            <div class="code-tab-container">
+                <div class="code-tabs">
+                    <div class="code-tab active" onclick="showCodeTab('html')">HTML</div>
+                    <div class="code-tab" onclick="showCodeTab('css')">CSS</div>
+                    <div class="code-tab" onclick="showCodeTab('js')">JavaScript</div>
+                </div>
+                
+                <div id="htmlCode" class="code-content active">
+                    <pre><code id="htmlCodeContent">&lt;html lang="en"&gt;&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Boni Leela Venkata Aditya - Portfolio&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;
+    &lt;link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;amp;display=swap" rel="stylesheet"&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+    &lt;style&gt;
+        /* Styles for download dialog */
+        .download-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .close-modal:hover {
+            color: black;
+        }
+        
+        .download-options {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .download-btn-modal {
+            padding: 0.8rem;
+            border-radius: 5px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn-modal:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow: auto;
+            margin-bottom: 1rem;
+        }
+        
+        .code-tab-container {
+            margin-bottom: 1rem;
+        }
+        
+        .code-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .code-tab {
+            padding: 0.5rem 1rem;
+            background: #eee;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+        
+        .code-tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .code-content {
+            display: none;
+        }
+        
+        .code-content.active {
+            display: block;
+        }
+    &lt;/style&gt;
+&lt;script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"&gt;&lt;/script&gt;&lt;link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"&gt;&lt;link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"&gt;&lt;link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"&gt;&lt;link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"&gt;&lt;link rel="stylesheet" href="chrome-extension://pjpgohokimaldkikgejifibjdpbopfdc/generated/icomoon.css"&gt;&lt;/head&gt;
+&lt;body sapling-installed="true"&gt;
+    &lt;div id="particles-js"&gt;&lt;canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="1256" height="752"&gt;&lt;/canvas&gt;&lt;/div&gt;
+    
+    &lt;header class="sticky"&gt;
+        &lt;nav&gt;
+            &lt;div class="logo"&gt;Aditya&lt;/div&gt;
+            &lt;div class="nav-links"&gt;
+                &lt;a href="#home" class="active"&gt;Home&lt;/a&gt;
+                &lt;a href="#about"&gt;About&lt;/a&gt;
+                &lt;a href="#projects"&gt;Projects&lt;/a&gt;
+                &lt;a href="#skills"&gt;Skills&lt;/a&gt;
+                &lt;a href="#experience"&gt;Experience&lt;/a&gt;
+                &lt;a href="#education"&gt;Education&lt;/a&gt;
+                &lt;a href="#certifications"&gt;Certifications&lt;/a&gt;
+                &lt;a href="#" onclick="showDownloadModal()"&gt;Download Files&lt;/a&gt;
+                &lt;div class="nav-close"&gt;&lt;i class="fas fa-times"&gt;&lt;/i&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="menu-btn"&gt;&lt;i class="fas fa-bars"&gt;&lt;/i&gt;&lt;/div&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;section id="home" class="hero fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="hero-content"&gt;
+                &lt;h1 class="slide-up"&gt;Hi, I'm &lt;span&gt;Boni Leela Venkata Aditya&lt;/span&gt;&lt;/h1&gt;
+                &lt;p class="slide-up"&gt;I'm a &lt;span class="txt-type" data-wait="3000" data-words="[&amp;quot;Software Engineer&amp;quot;, &amp;quot;Problem Solver&amp;quot;, &amp;quot;Web Developer&amp;quot;, &amp;quot;ML Enthusiast&amp;quot;]"&gt;&lt;span class="txt"&gt;Pr&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+                &lt;p class="slide-up"&gt;Looking to work for a dynamic organization with opportunities for career growth. Quick learner and problem solver.&lt;/p&gt;
+                
+                &lt;div class="social-icons slide-up"&gt;
+                    &lt;a href="mailto:bonileelu@gmail.com"&gt;&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#"&gt;&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="https://www.codechef.com/users/adi21501a0524"&gt;&lt;i class="fas fa-code"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cta-buttons slide-up"&gt;
+                    &lt;a href="#projects" class="btn primary-btn"&gt;View Projects&lt;/a&gt;
+                    &lt;a href="#contact" class="btn secondary-btn"&gt;Contact Me&lt;/a&gt;
+                    &lt;a href="#" class="btn secondary-btn" onclick="downloadResume()"&gt;Download Resume&lt;/a&gt;
+                    &lt;a href="#" class="btn secondary-btn" onclick="showDownloadModal()"&gt;Download Code&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="about" class="about fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;
+            &lt;div class="about-content"&gt;
+                &lt;div class="about-text animate visible"&gt;
+                    &lt;p&gt;I am looking forward to a career in software engineering. To learn and gain new experience while utilizing my interpersonal skills to help achieve business goals. Excellent analytical and developmental skills for a software engineer role.&lt;/p&gt;
+                    &lt;p&gt;Looking to work for a dynamic organization with opportunities for career growth. Quick learner and problem solver.&lt;/p&gt;
+                    
+                    &lt;div class="info-list"&gt;
+                        &lt;div class="info-item"&gt;
+                            &lt;i class="fas fa-envelope"&gt;&lt;/i&gt;
+                            &lt;span&gt;bonileelu@gmail.com&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="info-item"&gt;
+                            &lt;i class="fas fa-phone"&gt;&lt;/i&gt;
+                            &lt;span&gt;+91 8978536069&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class="info-item"&gt;
+                            &lt;i class="fas fa-map-marker-alt"&gt;&lt;/i&gt;
+                            &lt;span&gt;Vijayawada, India&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="projects" class="projects fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;Projects&lt;/h2&gt;
+            &lt;div class="project-grid"&gt;
+                &lt;div class="project-card animate visible"&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Car Price Prediction&lt;/h3&gt;
+                        &lt;div class="project-tags"&gt;
+                            &lt;span&gt;Flask&lt;/span&gt;
+                            &lt;span&gt;Machine Learning&lt;/span&gt;
+                            &lt;span&gt;HTML&lt;/span&gt;
+                            &lt;span&gt;CSS&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p&gt;In Python and Flask, I developed a car price prediction model that emphasizes robust data preprocessing and efficient model training. The application includes a user-friendly interface for seamless input and real-time price estimation.&lt;/p&gt;
+                        &lt;div class="project-links"&gt;
+                            &lt;a href="https://github.com/5435656/car_price_predictions" target="_blank"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt; View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="project-card animate visible"&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Supply Chain Using Blockchain&lt;/h3&gt;
+                        &lt;div class="project-tags"&gt;
+                            &lt;span&gt;Blockchain&lt;/span&gt;
+                            &lt;span&gt;Solidity&lt;/span&gt;
+                            &lt;span&gt;Truffle.js&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p&gt;The Supply Chain DApp leverages blockchain and smart contracts to simplify the management of pharmaceutical products, reduce regulatory burdens, and increase transparency. Developed using Solidity and deployed on Truffle.js' Gode Testnet.&lt;/p&gt;
+                        &lt;div class="project-links"&gt;
+                            &lt;a href="https://github.com/5435656/Supply_Chain_Blockchain" target="_blank"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt; View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="project-card animate visible"&gt;
+                    &lt;div class="project-content"&gt;
+                        &lt;h3&gt;Placement Cell Application&lt;/h3&gt;
+                        &lt;div class="project-tags"&gt;
+                            &lt;span&gt;HTML&lt;/span&gt;
+                            &lt;span&gt;CSS&lt;/span&gt;
+                            &lt;span&gt;JavaScript&lt;/span&gt;
+                            &lt;span&gt;ExpressJS&lt;/span&gt;
+                            &lt;span&gt;MongoDB&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p&gt;Placement Cell app is a solution for managing student job interviews using MongoDB, ExpressJS, NodeJS. It has CRUD jobs, interview management and profile updates for students and companies.&lt;/p&gt;
+                        &lt;div class="project-links"&gt;
+                            &lt;a href="https://github.com/5435656/Placement-Cell-Application" target="_blank"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt; View Project&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="skills" class="skills fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;Skills&lt;/h2&gt;
+            &lt;div class="skills-content"&gt;
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-code"&gt;&lt;/i&gt; Programming&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;Python&lt;/li&gt;
+                        &lt;li&gt;C++&lt;/li&gt;
+                        &lt;li&gt;C&lt;/li&gt;
+                        &lt;li&gt;Java&lt;/li&gt;
+                        &lt;li&gt;OOPS&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-globe"&gt;&lt;/i&gt; Web Technologies&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;HTML&lt;/li&gt;
+                        &lt;li&gt;CSS&lt;/li&gt;
+                        &lt;li&gt;JavaScript&lt;/li&gt;
+                        &lt;li&gt;Node.js&lt;/li&gt;
+                        &lt;li&gt;React&lt;/li&gt;
+                        &lt;li&gt;Bootstrap&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-database"&gt;&lt;/i&gt; Database&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;SQL&lt;/li&gt;
+                        &lt;li&gt;DBMS&lt;/li&gt;
+                        &lt;li&gt;NoSQL&lt;/li&gt;
+                        &lt;li&gt;MongoDB&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-brain"&gt;&lt;/i&gt; Data Science&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;Machine Learning&lt;/li&gt;
+                        &lt;li&gt;Pandas&lt;/li&gt;
+                        &lt;li&gt;NumPy&lt;/li&gt;
+                        &lt;li&gt;Matplotlib&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-tools"&gt;&lt;/i&gt; Tools&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;Git&lt;/li&gt;
+                        &lt;li&gt;Github&lt;/li&gt;
+                        &lt;li&gt;RESTful APIs&lt;/li&gt;
+                        &lt;li&gt;DSA&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="skill-category animate visible"&gt;
+                    &lt;h3&gt;&lt;i class="fas fa-users"&gt;&lt;/i&gt; Soft Skills&lt;/h3&gt;
+                    &lt;ul class="skill-list"&gt;
+                        &lt;li&gt;Leadership&lt;/li&gt;
+                        &lt;li&gt;Team Player&lt;/li&gt;
+                        &lt;li&gt;Communication&lt;/li&gt;
+                        &lt;li&gt;Discipline&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="experience" class="experience fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;Experience&lt;/h2&gt;
+            
+            &lt;div class="timeline-item animate visible"&gt;
+                &lt;div class="timeline-content"&gt;
+                    &lt;h3&gt;AWS Cloud Virtual Internship&lt;/h3&gt;
+                    &lt;div class="timeline-date"&gt;Sep 2023 - Nov 2023&lt;/div&gt;
+                    &lt;p class="institution"&gt;Supported by AWS academy&lt;/p&gt;
+                    &lt;p&gt;Participated in a 10-week Cloud Virtual Internship sponsored by AWS Academy, with an emphasis on cloud computing concepts.&lt;/p&gt;
+                    &lt;p&gt;Acquired extensive knowledge of AWS infrastructure, security, and best practices. Improved cloud expertise through hands-on learning and execution.&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/file/d/1JmTrshA29gSU1omrMpvTFAp_5SHGn62w/view?usp=sharing" class="certificate-link" target="_blank"&gt;View Certificate &lt;i class="fas fa-external-link-alt"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="education" class="education fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;Education&lt;/h2&gt;
+            
+            &lt;div class="timeline-item animate visible"&gt;
+                &lt;div class="timeline-content"&gt;
+                    &lt;h3&gt;Prasad V Potluri Siddhartha Institute Of Technology&lt;/h3&gt;
+                    &lt;div class="timeline-date"&gt;2021 - 2025&lt;/div&gt;
+                    &lt;p class="institution"&gt;Bachelor Of Technology in Computer Science And Engineering&lt;/p&gt;
+                    &lt;p class="grade"&gt;GPA: 8.41/10&lt;/p&gt;
+                    &lt;p&gt;Vijayawada, India&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="timeline-item animate visible"&gt;
+                &lt;div class="timeline-content"&gt;
+                    &lt;h3&gt;Narayana Junior College&lt;/h3&gt;
+                    &lt;div class="timeline-date"&gt;2019 - 2021&lt;/div&gt;
+                    &lt;p class="institution"&gt;Physics, Chemistry, &amp;amp; Mathematics&lt;/p&gt;
+                    &lt;p class="grade"&gt;Percentage: 91.6%&lt;/p&gt;
+                    &lt;p&gt;Vijayawada, India&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="timeline-item animate visible"&gt;
+                &lt;div class="timeline-content"&gt;
+                    &lt;h3&gt;Sree Ram High School&lt;/h3&gt;
+                    &lt;div class="timeline-date"&gt;2018 - 2019&lt;/div&gt;
+                    &lt;p class="institution"&gt;10th Class&lt;/p&gt;
+                    &lt;p class="grade"&gt;GPA: 9.8/10&lt;/p&gt;
+                    &lt;p&gt;Vijayawada, India&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section id="certifications" class="certifications fade-in"&gt;
+        &lt;div class="container"&gt;
+            &lt;h2 class="section-title"&gt;Certifications&lt;/h2&gt;
+            
+            &lt;div class="cert-grid"&gt;
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;Coursera&lt;/h3&gt;
+                    &lt;p&gt;Python for Data Science, AI Development, Tools for Data Science&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/drive/folders/1D4QyhFTIpA2jey_wFVzKsgXezZLeeWLm?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;Infosys Spring Board&lt;/h3&gt;
+                    &lt;p&gt;C++&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/file/d/1xAz7ULX65SG8Zi1UvWwPpZ5ERLuyqg79/view?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;NPTEL&lt;/h3&gt;
+                    &lt;p&gt;Programming in C, Java&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/drive/folders/1hH_przQM0VaMoLZUp0IR1j3Q4R1EObOr?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;Red Hat&lt;/h3&gt;
+                    &lt;p&gt;Certificate of Linux operating system&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/file/d/1vP4kriMPtOOwMlEia9_fTXeDZt0Y57w7/view?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;IIT Bombay&lt;/h3&gt;
+                    &lt;p&gt;Certifications in C, C++, and Python&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/drive/folders/1IT_GpjT8aaE7L74bbg4ByDL8etJqjkGd?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+                
+                &lt;div class="cert-card animate visible"&gt;
+                    &lt;i class="fas fa-certificate"&gt;&lt;/i&gt;
+                    &lt;h3&gt;Smart Coder&lt;/h3&gt;
+                    &lt;p&gt;Certificate from Smart Interviews for strong skills in DSA&lt;/p&gt;
+                    &lt;a href="https://drive.google.com/file/d/1pp86v3kFkNdhnymHytAepNl9ytUFH-Qd/view?usp=sharing" class="btn" target="_blank"&gt;View Certificate&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Download Modal --&gt;
+    &lt;div id="downloadModal" class="download-modal" style="display: block;"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;span class="close-modal" onclick="hideDownloadModal()"&gt;×&lt;/span&gt;
+            &lt;h2&gt;Download Source Code&lt;/h2&gt;
+            &lt;p&gt;You can view and copy the source code for the portfolio below:&lt;/p&gt;
+            
+            &lt;div class="code-tab-container"&gt;
+                &lt;div class="code-tabs"&gt;
+                    &lt;div class="code-tab active" onclick="showCodeTab('html')"&gt;HTML&lt;/div&gt;
+                    &lt;div class="code-tab" onclick="showCodeTab('css')"&gt;CSS&lt;/div&gt;
+                    &lt;div class="code-tab" onclick="showCodeTab('js')"&gt;JavaScript&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div id="htmlCode" class="code-content active"&gt;
+                    &lt;pre&gt;&lt;code id="htmlCodeContent"&gt;&lt;!-- HTML content will be populated by JavaScript --&gt;&lt;/code&gt;&lt;/pre&gt;
+                &lt;/div&gt;
+                
+                &lt;div id="cssCode" class="code-content"&gt;
+                    &lt;pre&gt;&lt;code id="cssCodeContent"&gt;&lt;!-- CSS content will be populated by JavaScript --&gt;&lt;/code&gt;&lt;/pre&gt;
+                &lt;/div&gt;
+                
+                &lt;div id="jsCode" class="code-content"&gt;
+                    &lt;pre&gt;&lt;code id="jsCodeContent"&gt;&lt;!-- JS content will be populated by JavaScript --&gt;&lt;/code&gt;&lt;/pre&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class="download-options"&gt;
+                &lt;button class="download-btn-modal" onclick="downloadHTML()"&gt;
+                    &lt;i class="fas fa-download"&gt;&lt;/i&gt; Download HTML
+                &lt;/button&gt;
+                &lt;button class="download-btn-modal" onclick="downloadCSS()"&gt;
+                    &lt;i class="fas fa-download"&gt;&lt;/i&gt; Download CSS
+                &lt;/button&gt;
+                &lt;button class="download-btn-modal" onclick="downloadJS()"&gt;
+                    &lt;i class="fas fa-download"&gt;&lt;/i&gt; Download JavaScript
+                &lt;/button&gt;
+                &lt;button class="download-btn-modal" onclick="downloadZIP()"&gt;
+                    &lt;i class="fas fa-file-archive"&gt;&lt;/i&gt; Download All Files (ZIP)
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="footer-content"&gt;
+                &lt;div&gt;
+                    &lt;p&gt;© 2023 Boni Leela Venkata Aditya. All rights reserved.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="social-icons"&gt;
+                    &lt;a href="mailto:bonileelu@gmail.com"&gt;&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#"&gt;&lt;i class="fab fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="#"&gt;&lt;i class="fab fa-github"&gt;&lt;/i&gt;&lt;/a&gt;
+                    &lt;a href="https://www.codechef.com/users/adi21501a0524"&gt;&lt;i class="fas fa-code"&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- Scripts --&gt;
+    &lt;script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"&gt;&lt;/script&gt;
+    &lt;script src="main.js"&gt;&lt;/script&gt;
+    
+    &lt;script&gt;
+        // Resume download functionality
+        function downloadResume() {
+            const resumeURL = 'tk8rq85u8k.pdf';
+            const link = document.createElement('a');
+            link.href = resumeURL;
+            link.download = 'Boni_Leela_Venkata_Aditya_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Modal functionality
+        function showDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'block';
+            loadCodeFiles();
+        }
+        
+        function hideDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+        }
+        
+        // Tab switching
+        function showCodeTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.code-content').forEach(content =&gt; {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.code-tab').forEach(tabEl =&gt; {
+                tabEl.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tab + 'Code').classList.add('active');
+            
+            // Highlight tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Load code files
+        async function loadCodeFiles() {
+            try {
+                // Extract current HTML content
+                const htmlContent = document.documentElement.outerHTML;
+                document.getElementById('htmlCodeContent').textContent = htmlContent;
+                
+                // Fetch CSS content
+                const cssResponse = await fetch('style.css');
+                const cssContent = await cssResponse.text();
+                document.getElementById('cssCodeContent').textContent = cssContent;
+                
+                // Fetch JS content
+                const jsResponse = await fetch('main.js');
+                const jsContent = await jsResponse.text();
+                document.getElementById('jsCodeContent').textContent = jsContent;
+            } catch (error) {
+                console.error('Error loading code files:', error);
+            }
+        }
+        
+        // Download functions
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            downloadFile('index.html', htmlContent, 'text/html');
+        }
+        
+        function downloadCSS() {
+            fetch('style.css')
+                .then(response =&gt; response.text())
+                .then(cssContent =&gt; {
+                    downloadFile('style.css', cssContent, 'text/css');
+                })
+                .catch(error =&gt; console.error('Error downloading CSS:', error));
+        }
+        
+        function downloadJS() {
+            fetch('main.js')
+                .then(response =&gt; response.text())
+                .then(jsContent =&gt; {
+                    downloadFile('main.js', jsContent, 'text/javascript');
+                })
+                .catch(error =&gt; console.error('Error downloading JS:', error));
+        }
+        
+        function downloadFile(filename, content, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        async function downloadZIP() {
+            try {
+                // Make sure both libraries are loaded
+                if (typeof JSZip === 'undefined' || typeof saveAs === 'undefined') {
+                    alert('ZIP libraries are not loaded properly. Please try again.');
+                    return;
+                }
+                
+                const zip = new JSZip();
+                
+                // Add HTML file
+                const htmlContent = document.documentElement.outerHTML;
+                zip.file('index.html', htmlContent);
+                
+                // Add CSS folder and file
+                const cssResponse = await fetch('style.css');
+                const cssContent = await cssResponse.text();
+                zip.folder('css').file('style.css', cssContent);
+                
+                // Add JS folder and file
+                const jsResponse = await fetch('main.js');
+                const jsContent = await jsResponse.text();
+                zip.folder('js').file('main.js', jsContent);
+                
+                // Generate the ZIP file
+                zip.generateAsync({ type: 'blob' })
+                    .then(function(content) {
+                        // Use FileSaver.js to save the ZIP
+                        saveAs(content, 'portfolio-source-code.zip');
+                    });
+            } catch (error) {
+                console.error('Error creating ZIP file:', error);
+                alert('Error creating ZIP file: ' + error.message);
+            }
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('downloadModal')) {
+                hideDownloadModal();
+            }
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;&lt;/html&gt;</code></pre>
+                </div>
+                
+                <div id="cssCode" class="code-content">
+                    <pre><code id="cssCodeContent">/* General Styling */
+:root {
+    --primary-color: #4facfe;
+    --secondary-color: #00f2fe;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c;
+    --danger-color: #d9534f;
+    --transition: all 0.3s ease;
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    overflow-x: hidden;
+    background: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+}
+
+.primary-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.primary-btn:hover {
+    box-shadow: 0 7px 20px rgba(79, 172, 254, 0.4);
+    transform: translateY(-3px);
+}
+
+.secondary-btn:hover {
+    background: rgba(79, 172, 254, 0.1);
+    transform: translateY(-3px);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--dark-color);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1.5rem 0;
+    z-index: 1000;
+    transition: var(--transition);
+    background: transparent;
+}
+
+header.sticky {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5eeff 100%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"&gt;&lt;path fill="rgba(79, 172, 254, 0.1)" fill-opacity="1" d="M0,192L48,170.7C96,149,192,107,288,106.7C384,107,480,149,576,154.7C672,160,768,128,864,106.7C960,85,1056,75,1152,96C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"&gt;&lt;/path&gt;&lt;/svg&gt;');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    color: var(--primary-color);
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    background: var(--gradient);
+    color: white;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background: white;
+    position: relative;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.info-item i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+/* Projects Section */
+.projects {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5eeff 100%);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient);
+    z-index: 2;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.project-content p {
+    margin-bottom: 1.5rem;
+    color: #666;
+    flex: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags span {
+    background: rgba(79, 172, 254, 0.1);
+    color: var(--primary-color);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.project-links a i {
+    margin-right: 0.5rem;
+}
+
+.project-links a:hover {
+    transform: translateX(5px);
+}
+
+/* Skills Section */
+.skills {
+    padding: 100px 0;
+    background: white;
+}
+
+.skills-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h3 {
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.skill-category h3 i {
+    color: var(--primary-color);
+    margin-right: 0.7rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-list li {
+    background: var(--gradient);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.skill-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+}
+
+/* Experience Timeline */
+.experience, .education {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5eeff 100%);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--gradient);
+    border-radius: 5px;
+}
+
+.timeline-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--gradient);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.3);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(79, 172, 254, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.institution {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.grade {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.certificate-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.certificate-link:hover {
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+/* Certifications section */
+.certifications {
+    padding: 100px 0;
+    background: white;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.cert-card {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 0;
+    left: 0;
+    background: var(--gradient);
+    z-index: 1;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cert-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.cert-card:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.cert-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: var(--dark-color);
+}
+
+.cert-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.cert-card .btn {
+    background: var(--gradient);
+    color: white;
+    border-radius: 30px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+    transition: var(--transition);
+}
+
+.cert-card .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e5eeff 100%);
+    position: relative;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-item div h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item div p {
+    color: #666;
+}
+
+.contact-item div p a {
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.contact-item div p a:hover {
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    padding: 2rem 0;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+footer .social-icons a {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+footer .social-icons a:hover {
+    background: var(--gradient);
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        transition: var(--transition);
+    }
+    
+    .nav-links.show {
+        right: 0;// Create a blob with the file content
+        const blob = new Blob(['Hello, World!'], {type: 'text/plain'});
+        
+        // Create a URL for the blob
+        const url = URL.createObjectURL(blob);
+        
+        // Set the URL as the href attribute of the download link
+        document.getElementById('download-link').href = url;
+        
+        // Optional: Set the download attribute to specify the file name
+        document.getElementById('download-link').download = 'example.txt';function downloadFile(filename, content, mimeType) {
+            const blob = new Blob([content], {type: mimeType});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+        }
+        
+        // Example usage:
+        downloadFile('example.txt', 'Hello, World!', 'text/plain');function downloadFile(filename, content, mimeType) {
+            const blob = new Blob([content], {type: mimeType});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+        }
+        
+        // Example usage:
+        downloadFile('example.txt', 'Hello, World!', 'text/plain');fetch('https://example.com/file.txt')
+            .then(response => response.blob())
+            .then(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'file.txt';
+                a.click();
+            })
+            .catch(error => console.error('Error downloading file:', error));fetch('https://example.com/file.txt')
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'file.txt';
+                    a.click();
+                })
+                .catch(error => console.error('Error downloading file:', error));fetch('https://example.com/file.txt')
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'file.txt';
+                        a.click();
+                    })
+                    .catch(error => console.error('Error downloading file:', error));fetch('https://example.com/file.txt')
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'file.txt';
+                            a.click();
+                        })
+                        .catch(error => console.error('Error downloading file:', error));fetch('https://example.com/file.txt')
+                            .then(response => response.blob())
+                            .then(blob => {
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = 'file.txt';
+                                a.click();
+                            })
+                            .catch(error => console.error('Error downloading file:', error));fetch('https://example.com/file.txt')
+                                .then(response => response.blob())
+                                .then(blob => {
+                                    const url = URL.createObjectURL(blob);
+                                    const a = document.createElement('a');
+                                    a.href = url;
+                                    a.download = 'file.txt';
+                                    a.click();
+                                })
+                                .catch(error => console.error('Error downloading file:', error));<!-- index.html -->
+                                
+                                <!-- ... (rest of the HTML code remains the same) -->
+                                
+                                
+                                <!-- Download links -->
+                                <div class
+    }
+    
+    .nav-close {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 1s ease forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease forwards;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}</code></pre>
+                </div>
+                
+                <div id="jsCode" class="code-content">
+                    <pre><code id="jsCodeContent">// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize scroll animations
+    initScrollAnimations();
+    
+    // Sticky header
+    initStickyHeader();
+    
+    // Mobile menu toggle
+    initMobileMenu();
+    
+    // Initialize particles.js if available
+    initParticles();
+});
+
+// Initialize scroll animations
+function initScrollAnimations() {
+    const sections = document.querySelectorAll('section');
+    
+    function checkSections() {
+        const triggerBottom = window.innerHeight * 0.85;
+        
+        sections.forEach(section =&gt; {
+            const sectionTop = section.getBoundingClientRect().top;
+            
+            if (sectionTop &lt; triggerBottom) {
+                section.classList.add('fade-in');
+                
+                // Animate elements inside the visible section
+                const elements = section.querySelectorAll('.animate');
+                elements.forEach((element, index) =&gt; {
+                    setTimeout(() =&gt; {
+                        element.classList.add('visible');
+                    }, index * 100);
+                });
+            }
+        });
+    }
+    
+    // Initial check
+    checkSections();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkSections);
+}
+
+// Initialize sticky header
+function initStickyHeader() {
+    const header = document.querySelector('header');
+    const heroHeight = document.querySelector('.hero').offsetHeight;
+    
+    function checkHeader() {
+        if (window.scrollY &gt; 100) {
+            header.classList.add('sticky');
+        } else {
+            header.classList.remove('sticky');
+        }
+    }
+    
+    // Initial check
+    checkHeader();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkHeader);
+}
+
+// Mobile menu toggle
+function initMobileMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const closeBtn = document.querySelector('.nav-close');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () =&gt; {
+            navLinks.classList.add('show');
+        });
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () =&gt; {
+            navLinks.classList.remove('show');
+        });
+    }
+    
+    navItems.forEach(item =&gt; {
+        item.addEventListener('click', () =&gt; {
+            navLinks.classList.remove('show');
+        });
+    });
+}
+
+// Initialize particles.js if available
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#4facfe"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#4facfe",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+}
+
+// Typing effect for hero section
+class TypeWriter {
+    constructor(txtElement, words, wait = 3000) {
+        this.txtElement = txtElement;
+        this.words = words;
+        this.txt = '';
+        this.wordIndex = 0;
+        this.wait = parseInt(wait, 10);
+        this.type();
+        this.isDeleting = false;
+    }
+    
+    type() {
+        // Current index of word
+        const current = this.wordIndex % this.words.length;
+        // Get full text of current word
+        const fullTxt = this.words[current];
+        
+        // Check if deleting
+        if(this.isDeleting) {
+            // Remove char
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            // Add char
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+        
+        // Insert txt into element
+        this.txtElement.innerHTML = `&lt;span class="txt"&gt;${this.txt}&lt;/span&gt;`;
+        
+        // Initial Type Speed
+        let typeSpeed = 300;
+        
+        if(this.isDeleting) {
+            typeSpeed /= 2;
+        }
+        
+        // If word is complete
+        if(!this.isDeleting &amp;&amp; this.txt === fullTxt) {
+            // Make pause at end
+            typeSpeed = this.wait;
+            // Set delete to true
+            this.isDeleting = true;
+        } else if(this.isDeleting &amp;&amp; this.txt === '') {
+            this.isDeleting = false;
+            // Move to next word
+            this.wordIndex++;
+            // Pause before start typing
+            typeSpeed = 500;
+        }
+        
+        setTimeout(() =&gt; this.type(), typeSpeed);
+    }
+}
+
+// Init TypeWriter On DOM Load
+document.addEventListener('DOMContentLoaded', function() {
+    const txtElement = document.querySelector('.txt-type');
+    if (txtElement) {
+        const words = JSON.parse(txtElement.getAttribute('data-words'));
+        const wait = txtElement.getAttribute('data-wait');
+        // Init TypeWriter
+        new TypeWriter(txtElement, words, wait);
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor =&gt; {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});</code></pre>
+                </div>
+            </div>
+            
+            <div class="download-options">
+                <button class="download-btn-modal" onclick="downloadHTML()">
+                    <i class="fas fa-download"></i> Download HTML
+                </button>
+                <button class="download-btn-modal" onclick="downloadCSS()">
+                    <i class="fas fa-download"></i> Download CSS
+                </button>
+                <button class="download-btn-modal" onclick="downloadJS()">
+                    <i class="fas fa-download"></i> Download JavaScript
+                </button>
+                <button class="download-btn-modal" onclick="downloadZIP()">
+                    <i class="fas fa-file-archive"></i> Download All Files (ZIP)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>© 2023 Boni Leela Venkata Aditya. All rights reserved.</p>
+                </div>
+                <div class="social-icons">
+                    <a href="mailto:bonileelu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.codechef.com/users/adi21501a0524"><i class="fas fa-code"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="main.js"></script>
+    
+    <script>
+        // Resume download functionality
+        function downloadResume() {
+            const resumeURL = 'tk8rq85u8k.pdf';
+            const link = document.createElement('a');
+            link.href = resumeURL;
+            link.download = 'Boni_Leela_Venkata_Aditya_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Modal functionality
+        function showDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'block';
+            loadCodeFiles();
+        }
+        
+        function hideDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+        }
+        
+        // Tab switching
+        function showCodeTab(tab) {
+            // Hide all tabs
+            document.querySelectorAll('.code-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.code-tab').forEach(tabEl => {
+                tabEl.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tab + 'Code').classList.add('active');
+            
+            // Highlight tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Load code files
+        async function loadCodeFiles() {
+            try {
+                // Extract current HTML content
+                const htmlContent = document.documentElement.outerHTML;
+                document.getElementById('htmlCodeContent').textContent = htmlContent;
+                
+                // Fetch CSS content
+                const cssResponse = await fetch('style.css');
+                const cssContent = await cssResponse.text();
+                document.getElementById('cssCodeContent').textContent = cssContent;
+                
+                // Fetch JS content
+                const jsResponse = await fetch('main.js');
+                const jsContent = await jsResponse.text();
+                document.getElementById('jsCodeContent').textContent = jsContent;
+            } catch (error) {
+                console.error('Error loading code files:', error);
+            }
+        }
+        
+        // Download functions
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            downloadFile('index.html', htmlContent, 'text/html');
+        }
+        
+        function downloadCSS() {
+            fetch('style.css')
+                .then(response => response.text())
+                .then(cssContent => {
+                    downloadFile('style.css', cssContent, 'text/css');
+                })
+                .catch(error => console.error('Error downloading CSS:', error));
+        }
+        
+        function downloadJS() {
+            fetch('main.js')
+                .then(response => response.text())
+                .then(jsContent => {
+                    downloadFile('main.js', jsContent, 'text/javascript');
+                })
+                .catch(error => console.error('Error downloading JS:', error));
+        }
+        
+        function downloadFile(filename, content, contentType) {
+            const blob = new Blob([content], { type: contentType });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        async function downloadZIP() {
+            try {
+                // Make sure both libraries are loaded
+                if (typeof JSZip === 'undefined' || typeof saveAs === 'undefined') {
+                    alert('ZIP libraries are not loaded properly. Please try again.');
+                    return;
+                }
+                
+                const zip = new JSZip();
+                
+                // Add HTML file
+                const htmlContent = document.documentElement.outerHTML;
+                zip.file('index.html', htmlContent);
+                
+                // Add CSS folder and file
+                const cssResponse = await fetch('style.css');
+                const cssContent = await cssResponse.text();
+                zip.folder('css').file('style.css', cssContent);
+                
+                // Add JS folder and file
+                const jsResponse = await fetch('main.js');
+                const jsContent = await jsResponse.text();
+                zip.folder('js').file('main.js', jsContent);
+                
+                // Generate the ZIP file
+                zip.generateAsync({ type: 'blob' })
+                    .then(function(content) {
+                        // Use FileSaver.js to save the ZIP
+                        saveAs(content, 'portfolio-source-code.zip');
+                    });
+            } catch (error) {
+                console.error('Error creating ZIP file:', error);
+                alert('Error creating ZIP file: ' + error.message);
+            }
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target != document.getElementById('downloadModal') && !document.getElementById('downloadModal').contains(event.target)) {
+                hideDownloadModal();
+            }
+        }
+    </script>
+
+</body>
+</html>
